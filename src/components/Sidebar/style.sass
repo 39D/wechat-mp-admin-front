@@ -1,0 +1,122 @@
+$main-dark-bg: #2C313E
+$main-dark-fg: #ADB1B6
+$header-item-height: 4.5em
+$default-item-height: 3.5em
+$collapse-controller-height: 2em
+
+.sidebar-wrapper
+  display: flex
+  flex-direction: column
+  background-color: $main-dark-bg
+  color: $main-dark-fg
+  font-size: 12px
+  // 重置 a, ul, li 的样式
+  a
+    display: block
+    color: inherit
+    text-decoration: none
+  ul
+    margin: 0
+    padding: 0
+  li
+    margin: 0
+    padding: 0
+    display: block
+    white-space: nowrap
+  // sidebar 公共样式
+  .nav-title
+    display: flex
+    align-items: center
+    line-height: $default-item-height
+    height: $default-item-height
+    padding: 0 1em
+    >[class^="icon"]
+      display: inline-block
+      margin: 0 0.5em
+      width: 1.3em
+      &[class^="icon-arrow"]
+        margin: 0
+        font-size: 12px
+    span
+      flex: 1
+    &:hover, &.active
+      color: white
+      background-color: lighten($main-dark-bg, 10%)
+  >.sidebar
+    flex: 1
+    flex-direction: column
+    display: flex
+    >.sidebar-header
+      >li.nav-item
+        border-bottom: 1px solid lighten($main-dark-bg, 15%)
+        >.nav-title
+          line-height: $header-item-height
+          height: $header-item-height
+    >.sidebar-body
+      flex: 1 0 0
+  >.collapse-controller
+    width: 100%
+    height: $collapse-controller-height
+    line-height: $collapse-controller-height
+    color: $main-dark-fg
+    background-color: lighten($main-dark-bg, 8%)
+    letter-spacing: .3em
+    text-align: center
+    &::before
+      content: "|||"
+    &:hover
+      color: lighten($main-dark-fg, 5%)
+      background-color: lighten($main-dark-bg, 10%)
+  
+  
+
+  .nav-toggle-menu
+    margin: 0
+    padding: 0
+    opacity: 0
+    >li.nav-header
+      display: block
+    >li.nav-item
+      display: block
+      .dot
+        display: none
+    &.active,&.nav-menu-float
+      opacity: 1
+    transition:         opacity .2s ease
+    
+  .sidebar-body
+    ul.sidebar-nav
+      >li.nav-item
+        >.nav-toggle-menu
+          display: none
+          >li.nav-header
+            display: none
+          
+          >li.nav-item
+            a
+              padding-left: 47px
+
+    ul.nav-toggle-menu.nav-menu-float
+      position: fixed
+      background: #393f4d
+      width: 150px
+      top: 148px
+      left: 60px
+      .nav-header
+        height: 40px
+        padding: 12px 16px
+        color: #adb1b6
+      
+      .nav-item
+        .dot
+          display: block
+          margin-left: 16px
+          margin-top: 18px
+          margin-right: 10px
+        
+        .nav-title
+          padding: 12px 16px
+      
+    
+  
+
